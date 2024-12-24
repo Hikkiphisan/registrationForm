@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class UserService implements IUserService {
+public class UserService implements IUserService<User> {
 
     @Autowired
     private UserRepository userRepository;
@@ -19,24 +19,26 @@ public class UserService implements IUserService {
         return null;
     }
 
-    @Override
-    public Iterable findAll() {
-        return null;
-    }
+//    @Override
+//    public Iterable findAll() {
+//        return null;
+//    }
+
+
 
     @Override
     public void save(User user) {
-        I
-
+        userRepository.save(user);
     }
 
-    @Override
-    public Optional findById(Long id) {
-        return Optional.empty();
-    }
 
-    @Override
-    public void remove(Long id) {
-
-    }
+//    @Override
+//    public Optional findById(Long id) {
+//        return Optional.empty();
+//    }
+//
+//    @Override
+//    public void remove(Long id) {
+//
+//    }
 }

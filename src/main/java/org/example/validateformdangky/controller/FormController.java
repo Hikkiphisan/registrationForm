@@ -2,6 +2,8 @@ package org.example.validateformdangky.controller;
 
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.example.validateformdangky.model.User;
+import org.example.validateformdangky.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,6 +16,11 @@ import javax.validation.Valid;
 
 @Controller
 public class FormController {
+
+    @Autowired
+    private UserService userService;
+
+
   @GetMapping("/form")
   public String showForm(Model model) {
     model.addAttribute("user", new User());
@@ -34,6 +41,7 @@ public class FormController {
             //Nếu thất bại thì trả ra thông báo lỗi
         }
         else {
+            userService.save(user);
             model.addAttribute("user", user);
             return "/result";
         }
