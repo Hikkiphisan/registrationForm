@@ -96,10 +96,10 @@ public class User implements Validator {
         ValidationUtils.rejectIfEmpty(errors, "age", "age.empty");
         ValidationUtils.rejectIfEmpty(errors, "email", "email.empty");
 
-        if (lastname.length() < 1 || lastname.length() > 45) {
+        if (lastname.length() < 2 || lastname.length() > 45) {
             errors.rejectValue("lastname", "lastname.length");
         }
-        if (firstname.length() < 1 || firstname.length() > 45) {
+        if (firstname.length() < 2 || firstname.length() > 45) {
             errors.rejectValue("firstname", "firstname.length");
         }
         if (!phonenumber.matches("(^&|[0-9]*$)")) {
