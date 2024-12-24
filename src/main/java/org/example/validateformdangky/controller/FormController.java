@@ -34,7 +34,7 @@ public class FormController {
             //Nếu thất bại thì trả ra thông báo lỗi
         }
         else {
-            model.addAttribute("user", new User());
+            model.addAttribute("user", user);
             return "/result";
         }
   };

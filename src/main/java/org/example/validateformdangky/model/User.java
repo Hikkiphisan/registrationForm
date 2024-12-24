@@ -5,10 +5,18 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+@Entity
+@Table(name = "user")
 public class User implements Validator {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    Long id;
+
     String lastname;
     String firstname;
     String phonenumber;
@@ -71,6 +79,14 @@ public class User implements Validator {
         this.email = email;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     //phải implement Validator thì moi ghi de duoc
     @Override
     public boolean supports(Class<?> clazz) {
@@ -111,3 +127,7 @@ public class User implements Validator {
     }
 
 }
+
+
+
+
